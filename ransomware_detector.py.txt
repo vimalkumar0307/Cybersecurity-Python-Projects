@@ -1,0 +1,12 @@
+# ransomware_detector.py
+import os
+
+extensions = [".locked", ".encrypt", ".crypto"]
+
+path = input("Enter directory path: ")
+
+for root, dirs, files in os.walk(path):
+    for file in files:
+        for ext in extensions:
+            if file.endswith(ext):
+                print("Suspicious encrypted file:", file)
