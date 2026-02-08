@@ -1,0 +1,13 @@
+# xss_scanner.py
+import requests
+
+url = input("Enter URL with parameter (ex: http://site.com/?q=): ")
+payload = "<script>alert('XSS')</script>"
+
+test_url = url + payload
+r = requests.get(test_url)
+
+if payload in r.text:
+    print("XSS Vulnerable!")
+else:
+    print("Not vulnerable")
