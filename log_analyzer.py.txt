@@ -1,0 +1,9 @@
+# log_analyzer.py
+file = input("Enter log file name: ")
+
+with open(file, "r") as f:
+    logs = f.readlines()
+
+for line in logs:
+    if "failed" in line.lower():
+        print("ALERT:", line)
